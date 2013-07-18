@@ -16,6 +16,7 @@ public class UpperCaseModifier implements BeanPostProcessor {
 				fields[i].setAccessible(true);
 				try {
 					String original = (String) fields[i].get(bean);
+					System.out.println(original);
 					fields[i].set(bean, original.toUpperCase());
 				} catch (IllegalArgumentException e) {
 					e.printStackTrace();

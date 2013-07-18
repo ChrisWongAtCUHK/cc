@@ -9,6 +9,9 @@
     <bean id="chrisBean" class="onlyfun.caterpillar.ChrisBean"> 
         <property name="chrisWong"> 
             <value>Handsome!</value> 
+        </property>
+         <property name="amby"> 
+            <value>Bus expert!</value> 
         </property> 
     </bean>
 </beans>

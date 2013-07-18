@@ -10,5 +10,6 @@ public class SpringDemo {
 
 		ChrisBean chris = (ChrisBean) context.getBean("chrisBean");
 		System.out.println(chris.getChrisWong());
+		//System.out.println(chris.getAmby());
 	}
 }

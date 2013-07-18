@@ -2,6 +2,7 @@ package onlyfun.caterpillar;
 
 public class ChrisBean {
 	private String chrisWong; 
+    private String amby;
     
     public ChrisBean() {
     }
@@ -11,5 +12,12 @@ public class ChrisBean {
     } 
     public String getChrisWong() { 
         return chrisWong; 
+    } 
+    
+    public void setAmby(String amby) { 
+        this.amby = amby; 
+    } 
+    public String getAmby() { 
+        return amby; 
     } 
 }
