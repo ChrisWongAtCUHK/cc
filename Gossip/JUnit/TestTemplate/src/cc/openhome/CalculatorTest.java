@@ -36,10 +36,5 @@ public class CalculatorTest extends TestCase {
 		int result = calculator.multiply(4, 2);
 		Assert.assertEquals(expected, result);	
     }
-    
-    // http://openhome.cc/Gossip/JUnit/TestTemplate.html
-	public static void main(String[] args){
-		TestRunner.run(CalculatorTest.class);
-	}
 
 }
