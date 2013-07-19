@@ -17,5 +17,10 @@ public class TakeCourseImpl implements TakeCourse {
 	public void takeOpenSource() {
 		System.out.println("	- take Open Source Project");
 	}
+	
+	@Override
+	public void takeComputerSecurity(){
+		System.out.println("	- take Computer Security");
+	}
 
 }
