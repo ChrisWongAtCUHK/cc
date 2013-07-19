@@ -1,4 +1,5 @@
 
+// http://openhome.cc/Gossip/DesignPattern/CommandPattern.htm
 public class Main {
 	public static void main(String[] args){
 		TakeCourseOperation tco = new TakeCourseOperation();
