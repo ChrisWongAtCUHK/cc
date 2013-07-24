@@ -3,17 +3,17 @@ package cc.openhome;
 import java.lang.reflect.*;
 import java.util.*;
 
-public class TestSuite implements Test {
+public class TestSuite<T> implements Test {
 	private List<Test> tests = new ArrayList<Test>();
 	
 	public TestSuite(){}
 	
-	public TestSuite(Class clz){
+	public TestSuite(Class<T> clz){
 		// Find every methods start with "test" in name
 		Method[] methods = clz.getDeclaredMethods();
 		for(Method method: methods){
 			if(Modifier.isPublic(method.getModifiers()) && method.getName().startsWith("test")){
-				Constructor constructor = null;
+				Constructor<T> constructor = null;
 				try {
 					constructor = clz.getConstructor();
 					
@@ -27,22 +27,16 @@ public class TestSuite implements Test {
 					add(testCase);
 					
 				} catch (SecurityException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (NoSuchMethodException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IllegalArgumentException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (InstantiationException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (InvocationTargetException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}

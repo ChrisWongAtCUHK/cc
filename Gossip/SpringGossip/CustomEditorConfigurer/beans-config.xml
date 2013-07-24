@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE beans PUBLIC "-//SPRING/DTD BEAN/EN" 
+  "http://www.springframework.org/dtd/spring-beans.dtd"> 
+
+<beans>
+	<bean id="configBean" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors"> 
+           <map>
+           		<entry key="cuhk.cse.Student">
+           			<bean id="studentEditor" class="cuhk.cse.StudentEditor" />
+           		</entry>
+           </map>
+        </property>            
+    </bean> 
+
+    <bean id="chrisBean" class="cuhk.cse.ChrisBean"> 
+        <property name="chrisWord"> 
+             <value>Handsome!</value> 
+        </property>
+        <property name="student"> 
+        	<value>Chris Wong,1155000543</value>
+        </property> 
+    </bean>
+    
+    <bean id="ambyBean" class="cuhk.cse.ChrisBean"> 
+        <property name="chrisWord"> 
+             <value>BUS!</value> 
+        </property>
+        <property name="student"> 
+        	<value>Amby Wong,1155002818</value>
+        </property> 
+    </bean>
+</beans>

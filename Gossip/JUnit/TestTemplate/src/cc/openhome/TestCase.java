@@ -24,7 +24,7 @@ public class TestCase extends Assert implements Test {
 	public void runTest() {
         Method runMethod= null;
         try {
-            runMethod= getClass().getMethod(fName, null);
+            runMethod= getClass().getMethod(fName, (Class<?>[])null);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -32,7 +32,7 @@ public class TestCase extends Assert implements Test {
             throw new RuntimeException("方法 \"" + fName + "\" 必須是 public");
         }
         try {
-            runMethod.invoke(this, new Class[0]);
+            runMethod.invoke(this, (Object [])new Class[0]);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -1,5 +1,4 @@
 package cc.openhome;
-import java.util.*;
 
 public class TestRunner {
 
@@ -7,7 +6,7 @@ public class TestRunner {
         test.run();
     }
     
-    public static void run(Class clz){
-    	run(new TestSuite(clz));
+    public static <T> void run(Class<T> clz){
+    	run(new TestSuite<T>(clz));
     }
 }

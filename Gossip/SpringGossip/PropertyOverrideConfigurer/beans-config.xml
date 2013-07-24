@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE beans PUBLIC "-//SPRING/DTD BEAN/EN" 
+  "http://www.springframework.org/dtd/spring-beans.dtd"> 
+
+<beans>
+	<bean id="configBean" 
+	  class="org.springframework.beans.factory.config.PropertyOverrideConfigurer"> 
+	        <property name="location"> 
+	            <value>chris.properties</value> 
+	        </property> 
+	    </bean> 
+
+    <bean id="chrisBean" class="onlyfun.caterpillar.ChrisBean"> 
+        <property name="chrisWong"> 
+             <value>Hello!</value> 
+        </property>
+    </bean>
+</beans>
