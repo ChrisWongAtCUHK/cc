@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE beans PUBLIC "-//SPRING/DTD BEAN/EN" 
+  "http://www.springframework.org/dtd/spring-beans.dtd"> 
+
+<beans> 
+    <bean id="logBeforeAdvice" 
+          class="cuhk.cse.LogBeforeAdvice"/> 
+
+    <bean id="handsomeAdvisor"
+          class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+       <property name="mappedName">
+           <value>handsome*</value>
+       </property>
+       <property name="advice">
+           <ref bean="logBeforeAdvice"/>
+       </property>
+    </bean>
+              
+    <bean id="handsomeSpeaker" 
+          class="cuhk.cse.HandsomeSpeaker"/> 
+    
+    <bean id="handsomeProxy" 
+          class="org.springframework.aop.framework.ProxyFactoryBean"> 
+        <property name="proxyInterfaces"> 
+            <value>cuhk.cse.IHandsome</value> 
+        </property> 
+        <property name="target"> 
+            <ref bean="handsomeSpeaker"/> 
+        </property> 
+        <property name="interceptorNames"> 
+            <list> 
+                <value>handsomeAdvisor</value>
+            </list> 
+        </property> 
+    </bean> 
+</beans>
