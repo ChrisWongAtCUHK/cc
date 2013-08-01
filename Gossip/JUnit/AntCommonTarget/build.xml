@@ -1,0 +1,18 @@
+<project name="AntCommonTarget" default="setProperties"> 
+	<target name="setProperties">
+		<property name="src.dir" value="src"/>
+		<property name="classes.dir" value="classes"/>
+		<property name="lib.dir" value="lib"/>
+		<property name="backup.dir" value="bak"/>
+		<property name="jar.file" value="${lib.dir}/JNameIt.jar"/>
+	</target>
+	
+	<target name="help" description="help info">
+    <echo message="help information!!"/>
+    <echo>Help! Help!</echo>
+    <echo><![CDATA[ 
+       Here is a help info.
+       Write your own information here.
+       ]]></echo>
+</target>
+</project>

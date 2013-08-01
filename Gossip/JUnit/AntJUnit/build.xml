@@ -1,0 +1,29 @@
+<project name="example" default="run"> 
+    <property name="src.dir" value="src"/> 
+    <property name="bin.dir" value="bin"/>
+    <property name="junit.dir" value="../../SpringGossip/spring-framework-2.5/lib/junit/junit-4.4.jar"/>
+    <property name="test.class" value=""/> 
+
+    <target name="clean">
+        <delete dir="${bin.dir}"/>
+    </target>
+    
+    <target name="prepare" depends="clean"> 
+        <mkdir dir="${bin.dir}"/> 
+    </target> 
+
+     <target name="compile" depends="prepare"> 
+        <javac srcdir="${src.dir}" destdir="${bin.dir}">
+            <classpath> 
+                <pathelement location="${junit.dir}"/>  
+            </classpath>           
+        </javac>
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="org.junit.runner.JUnitCore">
+            <classpath path="${bin.dir};${junit.dir}"/>
+	        <arg value="${test.class}"/>
+        </java>
+    </target>
+</project>

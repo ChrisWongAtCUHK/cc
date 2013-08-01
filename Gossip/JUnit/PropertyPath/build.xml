@@ -1,0 +1,12 @@
+<project name="envSample" default="deploy" basedir=".">
+    <property environment="env"/>
+    <target name="checkJavaHome" unless="env.JAVA_HOME">
+        <fail message="JAVA_HOME must be set!"/>
+    </target>
+    <target name="compile">
+    </target>
+    <target name="deploy" depends="checkJavaHome,compile">
+        <echo>Deploying to ${env.JAVA_HOME}</echo>
+		<echo message="user.home = ${user.home}"/>
+    </target>
+</project>

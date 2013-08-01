@@ -1,0 +1,23 @@
+<project name="example" default="run"> 
+    <property name="src.dir" value="src"/> 
+    <property name="bin.dir" value="bin"/> 
+    <property name="bak.dir" value="bak"/>
+
+    <target name="prepare"> 
+        <mkdir dir="${bin.dir}"/> 
+        <mkdir dir="${bak.dir}"/> 
+        <copy todir="${bak.dir}"> 
+            <fileset dir="${bin.dir}"/> 
+        </copy> 
+    </target> 
+
+    <target name="compile" depends="prepare"> 
+        <javac srcdir="${src.dir}" destdir="${bin.dir}"/> 
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="cuhk.cse.ChrisAnt">
+            <classpath path="${bin.dir}"/>
+        </java>
+    </target>
+</project>
