@@ -5,7 +5,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import cuhk.cse.*;
 
-// http://openhome.cc/Gossip/SpringGossip/NameMatchMethodPointcutAdvisor.html
+// http://openhome.cc/Gossip/SpringGossip/ControlFlowPointcut.html
 public class SpringAOPDemo {
 	public static void main(String[] args){
 		ApplicationContext context = new FileSystemXmlApplicationContext("beans-config.xml");
