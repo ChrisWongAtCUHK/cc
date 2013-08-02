@@ -1,5 +1,5 @@
 package cc.openhome;
 
 public interface Test {
-	void run();
+	void runTest(TestResult result);
 }
