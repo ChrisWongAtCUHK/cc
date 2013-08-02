@@ -2,7 +2,7 @@ package cc.openhome;
 
 public class CalculatorAll {
 	public static Test suite() {
-		TestSuite suite = new TestSuite();
+		TestSuite<Test> suite = new TestSuite<Test>();
 		// 隨便你組合
 		suite.add(CalculatorPlusMinusTest.suite());
 //		suite.add(CalculatorTest.class);

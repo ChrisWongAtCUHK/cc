@@ -22,7 +22,7 @@ public class CalculatorPlusMinusTest extends TestCase {
     }
    
     public static Test suite() {
-        TestSuite suite = new TestSuite();
+        TestSuite<Test> suite = new TestSuite<Test>();
         suite.add(new CalculatorPlusMinusTest("testPlus"));
         suite.add(new CalculatorPlusMinusTest("testMinus"));
         return suite;
