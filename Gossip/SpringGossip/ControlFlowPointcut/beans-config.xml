@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE beans PUBLIC "-//SPRING/DTD BEAN/EN" 
+  "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="handsomeCS" class="cuhk.cse.HandsomeCS" />
+
+	<bean id="logBeforeAdvice" class="cuhk.cse.LogBeforeAdvice" />
+	<bean id="logAfterAdvice" class="cuhk.cse.LogAfterAdvice" />
+
+	<bean id="handsomeFlowControlPointcut" class="org.springframework.aop.support.ControlFlowPointcut">
+		<constructor-arg>
+			<value>cuhk.cse.HandsomeCS</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="handsomeBeforeAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="advice">
+			<ref bean="logBeforeAdvice" />
+		</property>
+		<property name="pointcut">
+			<ref bean="handsomeFlowControlPointcut" />
+		</property>
+	</bean>
+
+	<bean id="handsomeAfterAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="advice">
+			<ref bean="logAfterAdvice" />
+		</property>
+		<property name="pointcut">
+			<ref bean="handsomeFlowControlPointcut" />
+		</property>
+	</bean>
+	
+	<bean id="handsomeSpeaker" class="cuhk.cse.HandsomeSpeaker" />
+
+	<bean id="handsomeProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>cuhk.cse.IHandsome</value>
+		</property>
+		<property name="target">
+			<ref bean="handsomeSpeaker" />
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>handsomeBeforeAdvisor</value>
+				<value>handsomeAfterAdvisor</value>
+			</list>
+		</property>
+	</bean>
+</beans>
