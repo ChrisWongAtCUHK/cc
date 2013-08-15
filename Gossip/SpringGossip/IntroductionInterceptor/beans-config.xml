@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE beans PUBLIC "-//SPRING/DTD BEAN/EN" 
+  "http://www.springframework.org/dtd/spring-beans.dtd"> 
+
+<beans> 
+    <bean id="csStudent" 
+          class="cuhk.cse.CSStudent"/> 
+
+    <bean id="graduateStudentIntroduction" 
+          class="cuhk.cse.GraduateStudentIntroduction"/> 
+          
+    <bean id="otherAdvisor" 
+          class="org.springframework.aop.support.DefaultIntroductionAdvisor"> 
+          <constructor-arg index="0">
+              <ref bean="graduateStudentIntroduction"/>
+          </constructor-arg>  
+          <constructor-arg index="1">
+              <value>cuhk.cse.GraduateStudent</value>
+          </constructor-arg>  
+    </bean>
+   
+    <bean id="proxyFactoryBean" 
+          class="org.springframework.aop.framework.ProxyFactoryBean"> 
+        <property name="proxyInterfaces"> 
+            <value>cuhk.cse.Student</value> 
+        </property> 
+        <property name="target"> 
+            <ref bean="csStudent"/> 
+        </property> 
+        <property name="interceptorNames"> 
+            <list> 
+                <value>otherAdvisor</value> 
+            </list> 
+        </property> 
+    </bean> 
+</beans>
