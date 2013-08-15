@@ -10,13 +10,15 @@ public class SpringAOPDemo {
 	// http://openhome.cc/Gossip/SpringGossip/IntroductionInterceptor.html
 	public static void main(String[] args) {
 		 ApplicationContext context = new FileSystemXmlApplicationContext("beans-config.xml"); 
-		 Student ken = (Student)context.getBean("proxyFactoryBean");
+		 Student chris = (Student)context.getBean("proxyFactoryBean");
 		 
-		 ken.setName("ken");
-		 ken.doAssignment();
+		 chris.setName("chris");
+		 chris.doAssignment();
 		 
-		 // It is as though studnet dynamically add method
-		 ((GraduateStudent)ken).doProject();
+		 // It is as though student dynamically add method
+		 // TODO: why setName do nothing?
+		 ((GraduateStudent)chris).setName("chris");
+		 ((GraduateStudent)chris).doProject();
 		 
 	}
 }

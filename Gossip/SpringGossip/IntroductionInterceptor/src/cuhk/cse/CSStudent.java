@@ -11,6 +11,6 @@ public class CSStudent implements Student {
 	public void doAssignment() {
 		if(this.name == null)
 			name = "A CSer";
-		System.out.println(this.name + " do student assignment.");
+		System.out.println(this.name + " do cs assignment.");
 	}
 }

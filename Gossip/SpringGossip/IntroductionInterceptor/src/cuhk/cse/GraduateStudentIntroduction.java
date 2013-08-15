@@ -10,6 +10,7 @@ public class GraduateStudentIntroduction implements IntroductionInterceptor,
 	public void setName(String name){
 		this.name = name;
 	}
+	
 	@Override
 	public Object invoke(MethodInvocation methodInvocation) throws Throwable {
 		// If invoked method is defined by GraduateStudent
@@ -24,8 +25,9 @@ public class GraduateStudentIntroduction implements IntroductionInterceptor,
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public boolean implementsInterface(Class clazz) {
+	public boolean implementsInterface(@SuppressWarnings("rawtypes") Class clazz) {
 		// if implements GraduateStudent class
 		return clazz.isAssignableFrom(GraduateStudent.class);
 	}
@@ -33,7 +35,7 @@ public class GraduateStudentIntroduction implements IntroductionInterceptor,
 	@Override
 	public void doProject() {
 		if(this.name == null)
-			name = "A graduate studnet";
+			name = "A graduate student";
 		System.out.println(this.name + " do project in company.");
 	}
 
