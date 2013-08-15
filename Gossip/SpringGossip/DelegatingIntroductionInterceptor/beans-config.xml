@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE beans PUBLIC "-//SPRING/DTD BEAN/EN" 
+  "http://www.springframework.org/dtd/spring-beans.dtd"> 
+
+<beans> 
+    <bean id="csStudent" 
+          class="cuhk.cse.CSStudent"/> 
+
+    <bean id="lockIntroduction" 
+          class="cuhk.cse.LockIntroduction"/> 
+          
+    <bean id="lockAdvisor" 
+          class="org.springframework.aop.support.DefaultIntroductionAdvisor"> 
+          <constructor-arg index="0">
+              <ref bean="lockIntroduction"/>
+          </constructor-arg>  
+          <constructor-arg index="1">
+              <value>cuhk.cse.ILockable</value>
+          </constructor-arg>  
+    </bean>
+   
+    <bean id="proxyFactoryBean" 
+          class="org.springframework.aop.framework.ProxyFactoryBean"> 
+        <property name="proxyInterfaces"> 
+            <value>cuhk.cse.Student</value> 
+        </property> 
+        <property name="target"> 
+            <ref bean="csStudent"/> 
+        </property> 
+        <property name="interceptorNames"> 
+            <list> 
+                <value>lockAdvisor</value> 
+            </list> 
+        </property> 
+    </bean> 
+</beans>
